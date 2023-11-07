@@ -39,6 +39,7 @@ jobs:
           # where clang
           # clang --version
           export CC_aarch64_unknown_linux_musl=musl-gcc
+          export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_MUSL_LINKER=musl-gcc
           rustup target add aarch64-unknown-linux-musl
           cargo build --target aarch64-unknown-linux-musl
 
