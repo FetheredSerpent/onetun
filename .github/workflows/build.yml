@@ -31,7 +31,9 @@ jobs:
         run: |
           sudo apt-get install gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu
           # gcc --version
-          # curl -L -o libclang-release_140-based-windows-mingw_64.7z https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/libclang-release_140-based-windows-mingw_64.7z
+          curl -L -o clang+llvm-17.0.4-aarch64-linux-gnu.tar.xz https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.4/clang+llvm-17.0.4-aarch64-linux-gnu.tar.xz
+          tar -xJv clang+llvm-17.0.4-aarch64-linux-gnu.tar.xz
+          ls -laR
           # curl -L -o 7zr.exe https://github.com/FetheredSerpent/qt-mingw64/raw/dev/7zr.exe
           # echo Extracting libclang
           # 7zr x libclang-release_140-based-windows-mingw_64.7z -y
