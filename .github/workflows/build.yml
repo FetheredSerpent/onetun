@@ -32,8 +32,8 @@ jobs:
           sudo apt-get install gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu
           # gcc --version
           curl -L -o clang+llvm-17.0.4-aarch64-linux-gnu.tar.xz https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.4/clang+llvm-17.0.4-aarch64-linux-gnu.tar.xz
-          tar -xvf clang+llvm-17.0.4-aarch64-linux-gnu.tar.xz
-          ls -laR
+          tar -xf clang+llvm-17.0.4-aarch64-linux-gnu.tar.xz
+          # ls -laR
           # curl -L -o 7zr.exe https://github.com/FetheredSerpent/qt-mingw64/raw/dev/7zr.exe
           # echo Extracting libclang
           # 7zr x libclang-release_140-based-windows-mingw_64.7z -y
@@ -41,8 +41,8 @@ jobs:
           # where clang
           # clang --version
           export PATH=`pwd`/clang+llvm-17.0.4-aarch64-linux-gnu/bin:$PATH
-          export CC_aarch64_unknown_linux_gnu=aarch64-linux-gnu-gcc-11
-          export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=aarch64-linux-gnu-gcc-11
+          export CC_aarch64_unknown_linux_gnu=clang-17
+          export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=clang-17
           rustup target add aarch64-unknown-linux-gnu
           cargo build --target aarch64-unknown-linux-gnu
 
