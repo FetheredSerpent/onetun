@@ -30,6 +30,7 @@ jobs:
         shell: cmd
         run: |
           where gcc
+          set CC_aarch64_unknown_linux_musl=gcc
           rustup target add aarch64-unknown-linux-musl
           cargo build --target aarch64-unknown-linux-musl
 
