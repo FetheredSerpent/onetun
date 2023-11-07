@@ -40,8 +40,9 @@ jobs:
           # set PATH=%CD%\libclang\bin;%PATH%
           # where clang
           # clang --version
-          export CC_aarch64_unknown_linux_musl=aarch64-linux-gnu-gcc-11
-          export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_MUSL_LINKER=aarch64-linux-gnu-gcc-11
+          export PATH=`pwd`/clang+llvm-17.0.4-aarch64-linux-gnu/bin:$PATH
+          export CC_aarch64_unknown_linux_gnu=aarch64-linux-gnu-gcc-11
+          export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=aarch64-linux-gnu-gcc-11
           rustup target add aarch64-unknown-linux-gnu
           cargo build --target aarch64-unknown-linux-gnu
 
