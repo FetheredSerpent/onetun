@@ -38,7 +38,7 @@ jobs:
           # set PATH=%CD%\libclang\bin;%PATH%
           # where clang
           # clang --version
-          # set CC_aarch64_unknown_linux_musl=clang
+          export CC_aarch64_unknown_linux_musl=aarch64-linux-gnu-gcc-11
           rustup target add aarch64-unknown-linux-musl
           cargo build --target aarch64-unknown-linux-musl
 
