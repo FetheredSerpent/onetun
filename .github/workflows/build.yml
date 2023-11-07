@@ -29,7 +29,7 @@ jobs:
       - name: Run cargo build
         # shell: cmd
         run: |
-          sudo apt-get install gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu
+          sudo apt-get install musl-dev musl-tools gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu
           # gcc --version
           # curl -L -o libclang-release_140-based-windows-mingw_64.7z https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/libclang-release_140-based-windows-mingw_64.7z
           # curl -L -o 7zr.exe https://github.com/FetheredSerpent/qt-mingw64/raw/dev/7zr.exe
@@ -38,7 +38,7 @@ jobs:
           # set PATH=%CD%\libclang\bin;%PATH%
           # where clang
           # clang --version
-          export CC_aarch64_unknown_linux_musl=aarch64-linux-gnu-gcc-11
+          export CC_aarch64_unknown_linux_musl=musl-gcc
           rustup target add aarch64-unknown-linux-musl
           cargo build --target aarch64-unknown-linux-musl
 
