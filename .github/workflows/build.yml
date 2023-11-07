@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -29,15 +29,16 @@ jobs:
       - name: Run cargo build
         shell: cmd
         run: |
-          gcc --version
-          curl -L -o libclang-release_140-based-windows-mingw_64.7z https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/libclang-release_140-based-windows-mingw_64.7z
-          curl -L -o 7zr.exe https://github.com/FetheredSerpent/qt-mingw64/raw/dev/7zr.exe
-          echo Extracting libclang
-          7zr x libclang-release_140-based-windows-mingw_64.7z -y
-          set PATH=%CD%\libclang\bin;%PATH%
-          where clang
-          clang --version
-          set CC_aarch64_unknown_linux_musl=clang
+          apt install gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu
+          # gcc --version
+          # curl -L -o libclang-release_140-based-windows-mingw_64.7z https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/libclang-release_140-based-windows-mingw_64.7z
+          # curl -L -o 7zr.exe https://github.com/FetheredSerpent/qt-mingw64/raw/dev/7zr.exe
+          # echo Extracting libclang
+          # 7zr x libclang-release_140-based-windows-mingw_64.7z -y
+          # set PATH=%CD%\libclang\bin;%PATH%
+          # where clang
+          # clang --version
+          # set CC_aarch64_unknown_linux_musl=clang
           rustup target add aarch64-unknown-linux-musl
           cargo build --target aarch64-unknown-linux-musl
 
