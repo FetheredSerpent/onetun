@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run cargo build
         shell: cmd
-        run: cargo build
+        run: cargo build --target aarch64-unknown-linux-musl
 
       # Runs a set of commands using the runners shell
       # - name: Run a multi-line script
