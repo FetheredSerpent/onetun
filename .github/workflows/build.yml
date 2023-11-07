@@ -31,8 +31,8 @@ jobs:
         run: |
           sudo apt-get install gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu
           # gcc --version
-          curl -L -o clang+llvm-17.0.4-aarch64-linux-gnu.tar.xz https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.4/clang+llvm-17.0.4-aarch64-linux-gnu.tar.xz
-          tar -xf clang+llvm-17.0.4-aarch64-linux-gnu.tar.xz
+          # curl -L -o clang+llvm-17.0.4-aarch64-linux-gnu.tar.xz https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.4/clang+llvm-17.0.4-aarch64-linux-gnu.tar.xz
+          # tar -xf clang+llvm-17.0.4-aarch64-linux-gnu.tar.xz
           # ls -laR
           # curl -L -o 7zr.exe https://github.com/FetheredSerpent/qt-mingw64/raw/dev/7zr.exe
           # echo Extracting libclang
@@ -41,10 +41,11 @@ jobs:
           # where clang
           # clang --version
           export PATH=`pwd`/clang+llvm-17.0.4-aarch64-linux-gnu/bin:$PATH
-          export CC_aarch64_unknown_linux_gnu=clang-17
-          export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=clang-17
+          export CC_aarch64_unknown_linux_gnu=aarch64-linux-gnu-gcc-11
+          export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=aarch64-linux-gnu-gcc-11
           rustup target add aarch64-unknown-linux-gnu
           cargo build --target aarch64-unknown-linux-gnu
+          ls -laR
 
       # Runs a set of commands using the runners shell
       # - name: Run a multi-line script
@@ -56,4 +57,4 @@ jobs:
         uses: actions/upload-artifact@v3.1.3
         with:
           name: onetun
-          path: target/debug/onetun
+          path: target/aarch64-unknown-linux-gnu/debug/onetun
