@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run cargo build
-        shell: cmd
+        # shell: cmd
         run: |
           apt install gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu
           # gcc --version
